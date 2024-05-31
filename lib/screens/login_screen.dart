@@ -46,24 +46,35 @@ class _LoginScreenState extends State<LoginScreen> {
               SizedBox(height: 10.h),
               const Login(),
               SizedBox(height: 10.h),
-              Padding(
-                padding: EdgeInsets.symmetric(horizontal: 15.w),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Text("Don't ha acoount ",
-                        style: TextStyle(fontSize: 13.sp, color: Colors.grey)),
-                    Text("Signup",
-                        style: TextStyle(
-                            fontSize: 15.sp,
-                            color: Colors.blue,
-                            fontWeight: FontWeight.bold)),
-                  ],
-                ),
-              ),
+              const Have(),
             ],
           ),
         ),
+      ),
+    );
+  }
+}
+
+class Have extends StatelessWidget {
+  const Have({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 15.w),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
+        children: [
+          Text("Don't have acoount ",
+              style: TextStyle(fontSize: 13.sp, color: Colors.grey)),
+          Text("Signup",
+              style: TextStyle(
+                  fontSize: 15.sp,
+                  color: Colors.blue,
+                  fontWeight: FontWeight.bold)),
+        ],
       ),
     );
   }
@@ -106,7 +117,7 @@ class Forgot extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 10.w),
+      padding: EdgeInsets.symmetric(horizontal: 15.w),
       child: Text(
         "Forgot your password?",
         style: TextStyle(
