@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:instagram_clone/screens/login_screen.dart';
+import 'package:instagram_clone/auth/auth_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       home: ScreenUtilInit(
         designSize: Size(375,812),
-        child: LoginScreen()
+        child: AuthPage()
       ),
     );
   }
