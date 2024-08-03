@@ -4,6 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:photo_manager/photo_manager.dart';
 
+import 'add_post_text_screen.dart';
+
 class AddPostScreen extends StatefulWidget {
   const AddPostScreen({super.key});
 
@@ -23,9 +25,9 @@ class _AddPostScreenState extends State<AddPostScreen> {
     final PermissionState ps = await PhotoManager.requestPermissionExtend();
     if (ps.isAuth) {
       List<AssetPathEntity> album =
-          await PhotoManager.getAssetPathList(onlyAll: true);
+      await PhotoManager.getAssetPathList(type: RequestType.image);
       List<AssetEntity> media =
-          await album[0].getAssetListPaged(page: currentPage, size: 60);
+      await album[0].getAssetListPaged(page: currentPage, size: 60);
 
       for (var asset in media) {
         if (asset.type == AssetType.image) {
@@ -82,18 +84,25 @@ class _AddPostScreenState extends State<AddPostScreen> {
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
-        title: const Text(
+        title: Text(
           'New Post',
-          style: TextStyle(color: Colors.black),
+          style: TextStyle(color: Colors.black, fontSize: 15.sp),
         ),
         centerTitle: false,
         actions: [
           Center(
             child: Padding(
               padding: EdgeInsets.symmetric(horizontal: 10.w),
-              child: Text(
-                'Next',
-                style: TextStyle(fontSize: 15.sp, color: Colors.blue),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.of(context).push(MaterialPageRoute(
+                    builder: (context) => AddPostTextScreen(_file!),
+                  ));
+                },
+                child: Text(
+                  'Next',
+                  style: TextStyle(fontSize: 15.sp, color: Colors.blue),
+                ),
               ),
             ),
           ),
@@ -145,6 +154,7 @@ class _AddPostScreenState extends State<AddPostScreen> {
                     onTap: () {
                       setState(() {
                         indexx = index;
+                        _file = path[index];
                       });
                     },
                     child: _mediaList[index],

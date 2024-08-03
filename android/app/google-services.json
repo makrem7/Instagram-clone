@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "619675138070",
+    "project_id": "instagram-mak",
+    "storage_bucket": "instagram-mak.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:619675138070:android:174c2296af49ac02939d37",
+        "android_client_info": {
+          "package_name": "com.example.instagram_clone"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzkxqAfR0QZp91tpnRDlexzHUfglN3o6g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:619675138070:android:453989e09d0a80ef939d37",
+        "android_client_info": {
+          "package_name": "com.instagram.mak.app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAzkxqAfR0QZp91tpnRDlexzHUfglN3o6g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

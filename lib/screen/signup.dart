@@ -42,55 +42,57 @@ class _SignupScreenState extends State<SignupScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Column(
-          children: [
-            SizedBox(width: 96.w, height: 10.h),
-            Center(
-              child: Image.asset('images/logo.jpg'),
-            ),
-            SizedBox(width: 96.w, height: 70.h),
-            InkWell(
-              onTap: () async {
-                File _imagefilee = await ImagePickerr().uploadImage('gallery');
-                setState(() {
-                  _imageFile = _imagefilee;
-                });
-              },
-              child: CircleAvatar(
-                radius: 36.r,
-                backgroundColor: Colors.grey,
-                child: _imageFile == null
-                    ? CircleAvatar(
-                        radius: 34.r,
-                        backgroundImage: AssetImage('images/person.png'),
-                        backgroundColor: Colors.grey.shade200,
-                      )
-                    : CircleAvatar(
-                        radius: 34.r,
-                        backgroundImage: Image.file(
-                          _imageFile!,
-                          fit: BoxFit.cover,
-                        ).image,
-                        backgroundColor: Colors.grey.shade200,
-                      ),
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(width: 96.w, height: 10.h),
+              Center(
+                child: Image.asset('images/logo.jpg'),
               ),
-            ),
-            SizedBox(height: 40.h),
-            Textfild(email, email_F, 'Email', Icons.email),
-            SizedBox(height: 15.h),
-            Textfild(username, username_F, 'username', Icons.person),
-            SizedBox(height: 15.h),
-            Textfild(bio, bio_F, 'bio', Icons.abc),
-            SizedBox(height: 15.h),
-            Textfild(password, password_F, 'Password', Icons.lock),
-            SizedBox(height: 15.h),
-            Textfild(passwordConfirme, passwordConfirme_F, 'PasswordConfirme',
-                Icons.lock),
-            SizedBox(height: 15.h),
-            Signup(),
-            SizedBox(height: 15.h),
-            Have()
-          ],
+              SizedBox(width: 96.w, height: 70.h),
+              InkWell(
+                onTap: () async {
+                  File _imagefilee = await ImagePickerr().uploadImage('gallery');
+                  setState(() {
+                    _imageFile = _imagefilee;
+                  });
+                },
+                child: CircleAvatar(
+                  radius: 36.r,
+                  backgroundColor: Colors.grey,
+                  child: _imageFile == null
+                      ? CircleAvatar(
+                          radius: 34.r,
+                          backgroundImage: AssetImage('images/person.png'),
+                          backgroundColor: Colors.grey.shade200,
+                        )
+                      : CircleAvatar(
+                          radius: 34.r,
+                          backgroundImage: Image.file(
+                            _imageFile!,
+                            fit: BoxFit.cover,
+                          ).image,
+                          backgroundColor: Colors.grey.shade200,
+                        ),
+                ),
+              ),
+              SizedBox(height: 40.h),
+              Textfild(email, email_F, 'Email', Icons.email),
+              SizedBox(height: 15.h),
+              Textfild(username, username_F, 'username', Icons.person),
+              SizedBox(height: 15.h),
+              Textfild(bio, bio_F, 'bio', Icons.abc),
+              SizedBox(height: 15.h),
+              Textfild(password, password_F, 'Password', Icons.lock),
+              SizedBox(height: 15.h),
+              Textfild(passwordConfirme, passwordConfirme_F, 'PasswordConfirme',
+                  Icons.lock),
+              SizedBox(height: 15.h),
+              Signup(),
+              SizedBox(height: 15.h),
+              Have()
+            ],
+          ),
         ),
       ),
     );

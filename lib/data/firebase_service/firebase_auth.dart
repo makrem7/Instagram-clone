@@ -1,10 +1,11 @@
 import 'dart:io';
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter_instagram_clone/data/firebase_service/firestor.dart';
 import 'package:flutter_instagram_clone/data/firebase_service/storage.dart';
 
-import 'package:flutter_instagram_clone/util/exeption.dart';
+import '../../util/exeption.dart';
+import 'firestor.dart';
 
 class Authentication {
   FirebaseAuth _auth = FirebaseAuth.instance;
@@ -16,7 +17,10 @@ class Authentication {
       await _auth.signInWithEmailAndPassword(
           email: email.trim(), password: password.trim());
     } on FirebaseException catch (e) {
-      throw exceptions(e.message.toString());
+      print('Login error: ${e.message}');
+      String message= 'Login error: ${e.message}:';
+      throw exceptions(message);
+
     }
   }
 
@@ -65,8 +69,10 @@ class Authentication {
       } else {
         throw exceptions('enter all the fields');
       }
-    } on FirebaseException catch (e) {
-      throw exceptions(e.message.toString());
+    } on FirebaseAuthException catch (e) {
+      throw exceptions(e.message ?? 'An error occurred during signup');
+    } catch (e) {
+      throw exceptions(e.toString());
     }
   }
 }
