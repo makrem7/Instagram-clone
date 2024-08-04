@@ -34,7 +34,10 @@ class _HomeScreenState extends State<HomeScreen> {
             color: Colors.black,
             size: 25,
           ),
-          Image.asset('images/send.jpg'),
+          Padding(
+            padding: EdgeInsets.only(left: 8.w),
+            child: Image.asset('images/send.jpg'),
+          ),
         ],
         backgroundColor: const Color(0xffFAFAFA),
       ),

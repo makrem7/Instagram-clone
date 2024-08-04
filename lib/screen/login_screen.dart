@@ -29,23 +29,25 @@ class _LoginScreenState extends State<LoginScreen> {
     return Scaffold(
       backgroundColor: Colors.white,
       body: SafeArea(
-        child: Column(
-          children: [
-            SizedBox(width: 96.w, height: 100.h),
-            Center(
-              child: Image.asset('images/logo.jpg'),
-            ),
-            SizedBox(height: 120.h),
-            Textfild(email, email_F, 'Email', Icons.email),
-            SizedBox(height: 15.h),
-            Textfild(password, password_F, 'Password', Icons.lock),
-            SizedBox(height: 15.h),
-            forget(),
-            SizedBox(height: 15.h),
-            login(),
-            SizedBox(height: 15.h),
-            Have()
-          ],
+        child: SingleChildScrollView(
+          child: Column(
+            children: [
+              SizedBox(width: 96.w, height: 100.h),
+              Center(
+                child: Image.asset('images/logo.jpg'),
+              ),
+              SizedBox(height: 120.h),
+              Textfild(email, email_F, 'Email', Icons.email),
+              SizedBox(height: 15.h),
+              Textfild(password, password_F, 'Password', Icons.lock),
+              SizedBox(height: 15.h),
+              forget(),
+              SizedBox(height: 15.h),
+              login(),
+              SizedBox(height: 15.h),
+              Have()
+            ],
+          ),
         ),
       ),
     );
